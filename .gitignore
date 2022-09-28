@@ -36,6 +36,9 @@ build/
 *.iml
 *.ipr
 out/
+/.idea
+.idea/
+!.idea/icon*.png
 
 ### Android Studio ###
 local.properties
