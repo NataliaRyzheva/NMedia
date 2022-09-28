@@ -1,22 +1,3 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
-/.idea
-.idea/
-!.idea/icon*.png
-
 HELP.md
 .gradle
 build/
@@ -36,9 +17,6 @@ build/
 *.iml
 *.ipr
 out/
-/.idea
-.idea/
-!.idea/icon*.png
 
 ### Android Studio ###
 local.properties
@@ -67,3 +45,4 @@ captures/
 
 ### Gradle ###
 !/gradle/wrapper/gradle-wrapper.jar
+
