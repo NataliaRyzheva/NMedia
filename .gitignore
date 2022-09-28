@@ -13,7 +13,9 @@
 .externalNativeBuild
 .cxx
 local.properties
-
+/.idea
+.idea/
+!.idea/icon*.png
 
 HELP.md
 .gradle
