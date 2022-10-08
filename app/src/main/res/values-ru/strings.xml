@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">НМедиа!</string>
+    <string name="hello">Привет Мир</string>
 </resources>
