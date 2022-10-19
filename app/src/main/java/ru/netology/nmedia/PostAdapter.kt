@@ -20,7 +20,7 @@ class PostAdapter(private val likeClickListener: (Post) -> Unit,
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-      val postOne = post[position]
+      val postOne = this.post[position]
         holder.bind(postOne)
     }
 
