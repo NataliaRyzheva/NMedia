@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import ru.netology.nmedia.databinding.ActivityMainBinding
+import ru.netology.nmedia.databinding.CardPostBinding
 
 
 class MainActivity : AppCompatActivity() {
@@ -14,24 +15,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewModel: PostViewModel by viewModels()
-        viewModel.data.observe(this) { post ->
-            with(binding) {
-                author.text = post.author
-                published.text = post.published
-                content.text = post.content
-                likesText.text = Transformer.Transform.intTransform(post.like)
-                repostsText.text = Transformer.Transform.intTransform(post.shar)
-                likesImage.setImageResource(
-                    if (post.likeByMe) R.drawable.ic_launcher_like_click_foreground else R.drawable.ic_launcher_like_foreground
-                )
-            }
-        }
+        val adapter = PostAdapter(likeClickListener = { viewModel.like(it.id) },
+            sharClickListener = { viewModel.shar(it.id) })
 
-        binding.likesImage.setOnClickListener {
-            viewModel.like()
-        }
-        binding.repostsImage.setOnClickListener {
-            viewModel.shar()
+        binding.post.adapter = adapter
+
+        viewModel.data.observe(this) { post ->
+            adapter.post = post
+
         }
     }
 }
