@@ -6,21 +6,23 @@ import android.widget.ExpandableListView.OnChildClickListener
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.databinding.CardPostBinding
 
-class PostAdapter(private val likeClickListener: (Post) -> Unit,
-                  private val sharClickListener: (Post) -> Unit): RecyclerView.Adapter<PostViewHolder>() {
+class PostAdapter(
+    private val likeClickListener: (Post) -> Unit,
+    private val sharClickListener: (Post) -> Unit
+) : RecyclerView.Adapter<PostViewHolder>() {
     var post: List<Post> = emptyList()
-    set(value) {
-        field = value
-        notifyDataSetChanged()
-    }
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        val binding =CardPostBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return  PostViewHolder(binding,likeClickListener,sharClickListener)
+        val binding = CardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return PostViewHolder(binding, likeClickListener, sharClickListener)
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-      val postOne = this.post[position]
+        val postOne = post[position]
         holder.bind(postOne)
     }
 
@@ -32,7 +34,7 @@ class PostViewHolder(
     private val likeClickListener: (Post) -> Unit,
     private val sharClickListener: (Post) -> Unit
 
-): RecyclerView.ViewHolder(binding.root) {
+) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(post: Post) {
         with(binding) {
