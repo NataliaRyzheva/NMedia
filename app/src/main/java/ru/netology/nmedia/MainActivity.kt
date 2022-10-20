@@ -18,10 +18,10 @@ class MainActivity : AppCompatActivity() {
         val adapter = PostAdapter(likeClickListener = { viewModel.like(it.id) },
             sharClickListener = { viewModel.shar(it.id) })
 
-        binding.post.adapter = adapter
+        binding.list.adapter = adapter
 
         viewModel.data.observe(this) { post ->
-            adapter.post = post
+            adapter.submitList(post)
 
         }
     }
