@@ -54,11 +54,12 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            likesText.text = ru.netology.nmedia.Transformer.Transform.intTransform(post.like)
-            repostsText.text = ru.netology.nmedia.Transformer.Transform.intTransform(post.shar)
-            likesImage.setImageResource(
-                if (post.likeByMe) ru.netology.nmedia.R.drawable.ic_launcher_like_click_foreground else ru.netology.nmedia.R.drawable.ic_launcher_like_foreground
-            )
+            likesImage.text = ru.netology.nmedia.Transformer.Transform.intTransform(post.like)
+            repostsImage.text = ru.netology.nmedia.Transformer.Transform.intTransform(post.shar)
+            likesImage.isChecked = post.likeByMe
+            // likesImage.setImageResource(
+            //     if (post.likeByMe) ru.netology.nmedia.R.drawable.ic_launcher_like_click_foreground else ru.netology.nmedia.R.drawable.ic_launcher_like_foreground
+            // )
             likesImage.setOnClickListener {
                 interactionListener.onLike(post)
             }

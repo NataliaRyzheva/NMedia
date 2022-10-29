@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.AppTheme.LikeCheckBox" parent="Widget.MaterialComponents.Button.TextButton.Icon">
+        <item name="iconTint">@color/like_button_tint</item>
+        <item name="icon">@drawable/like_selector</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
+
+
+    </style>
+
+    <style name="Widget.AppTheme.ShareCheckBox" parent="Widget.MaterialComponents.Button.TextButton.Icon">
+        <item name="iconTint">@color/share_button_tint</item>
+        <item name="icon">@drawable/share_selector</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
+
+
+    </style>
+
+    <style name="Widget.AppTheme.MenuCheckBox" parent="Widget.MaterialComponents.Button.Icon">
+        <item name="iconTint">@color/menu_button_tint</item>
+        <item name="icon">@drawable/menu_selecter</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
+
+
+    </style>
+
+
+</resources>
