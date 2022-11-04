@@ -6,4 +6,13 @@
     <string name="description_post_like" translatable="false">Like!</string>
     <string name="description_post_reposts" translatable="false">Repost!</string>
     <string name="description_post_view" translatable="false">View!</string>
+    <string name="menu_remove">Удалить</string>
+    <string name="menu_edit" translatable="false">Изменить</string>
+    <string name="menu_save" translatable="false">Сохранить</string>
+    <string name="post_text" translatable="false">text post</string>
+    <string name="post_edit_text" translatable="false">Edit massage</string>
+    <string name="error_empty_content" translatable="false">Нет текста поста</string>
+    <string name="post_cancel" translatable="false">Отмена</string>
+    <string name="post_edit" translatable="false">Изменить</string>
+
 </resources>
