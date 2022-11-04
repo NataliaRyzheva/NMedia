@@ -14,7 +14,7 @@
     <string name="error_empty_content" translatable="false">Нет текста поста</string>
     <string name="post_cancel" translatable="false">Отмена</string>
     <string name="post_edit" translatable="false">Изменить</string>
-    <string name="chooser_share_post" translatable="false">Share post</string>
-    <string name="add_post" translatable="false">Добавить пост</string>>
+    <string name="chooser_share_post" translatable="false">Изменить</string>
+    <string name="add_post" translatable="false">Изменить</string>
 
 </resources>

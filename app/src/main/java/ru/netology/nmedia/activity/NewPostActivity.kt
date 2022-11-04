@@ -16,8 +16,6 @@ class NewPostActivity : AppCompatActivity() {
 
         val text = intent?.getStringExtra(Intent.EXTRA_TEXT)
         binding.content.setText(text)
-        //  val urls = intent?.getStringExtra(Intent.EXTRA_TEXT)
-        //   binding.content.setText(urls)
 
         binding.ok.setOnClickListener {
             val content = binding.content.text.toString()

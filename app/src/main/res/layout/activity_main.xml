@@ -6,73 +6,27 @@
     android:layout_height="wrap_content"
     tools:context=".activity.MainActivity">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:listitem="@layout/card_post" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-505dp"
+        tools:listitem="@layout/card_post"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp"
-        android:contentDescription="@string/add_post"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
+        app:srcCompat="@drawable/ic_add_24dp"
+        android:contentDescription="@string/add_post"/>
 
-    <LinearLayout
-        android:id="@+id/layoutCancel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints">
-
-        <ImageButton
-            android:id="@+id/imagePencil"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:contentDescription="@string/post_edit"
-            app:srcCompat="@android:drawable/ic_menu_edit" />
-
-        <TextView
-            android:id="@+id/textEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_weight="16"
-            android:background="@android:color/white"
-            android:gravity="center_vertical"
-            android:padding="16dp"
-            android:text="@string/post_edit_text"
-            app:layout_constraintBottom_toTopOf="@id/layoutCancel"
-            app:layout_constraintEnd_toStartOf="@id/imageCancel"
-            app:layout_constraintStart_toEndOf="@id/imagePencil" />
-
-        <ImageButton
-            android:id="@+id/imageCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:contentDescription="@string/post_cancel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_round_clear_24" />
-
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
