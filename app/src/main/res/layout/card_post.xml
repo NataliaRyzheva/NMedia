@@ -140,18 +140,17 @@
         style="@style/Widget.AppTheme.PlayCheckBox"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintTop_toTopOf="@id/video_banner"
         app:layout_constraintBottom_toBottomOf="@id/video_banner"
+        app:layout_constraintEnd_toEndOf="@id/video_banner"
         app:layout_constraintStart_toStartOf="@id/video_banner"
-        app:layout_constraintEnd_toEndOf="@id/video_banner"/>
+        app:layout_constraintTop_toTopOf="@id/video_banner" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/video_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        tools:visibility="visible"
-        app:constraint_referenced_ids="video_banner, play_Click_Video"/>
+        app:constraint_referenced_ids="video_banner, play_Click_Video"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
