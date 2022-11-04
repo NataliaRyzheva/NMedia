@@ -1,5 +1,6 @@
 package ru.netology.nmedia
 
+import androidx.core.view.isVisible
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,7 +13,8 @@ private val empty = Post(
     like = 0,
     shar = 0,
     likeByMe = false,
-    sharByMe = false
+    sharByMe = false,
+    video = ""
 
 )
 
@@ -21,13 +23,23 @@ class PostViewModel : ViewModel() {
     val data: LiveData<List<Post>> = repository.get()
     val edited = MutableLiveData(empty)
 
+
     fun changeContent(content: String) {
         val text = content.trim()
-        edited.value?.let {
-            if (it.content == text)
-                return
+        if (edited.value?.content == text) {
+            return
+        } else {
+            edited.value = edited.value?.copy(content = text)
         }
-        edited.value = edited.value?.copy(content = text)
+    }
+
+    fun changeContentUrl(video: String) {
+        val videoUrl = video.trim()
+        if (edited.value?.video == videoUrl) {
+            return
+        } else {
+            edited.value = edited.value?.copy(video = videoUrl)
+        }
     }
 
 
@@ -44,5 +56,8 @@ class PostViewModel : ViewModel() {
     fun edit(post: Post) {
         edited.value = post
     }
-
 }
+
+
+
+
