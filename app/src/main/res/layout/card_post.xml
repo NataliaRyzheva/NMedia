@@ -131,7 +131,7 @@
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_marginTop="68dp"
-        android:background="@mipmap/ic_launcher_video4_foreground"
+        android:background="@mipmap/ic_launcher_video45_foreground"
         app:layout_constraintTop_toBottomOf="@id/content" />
 
     <com.google.android.material.button.MaterialButton
