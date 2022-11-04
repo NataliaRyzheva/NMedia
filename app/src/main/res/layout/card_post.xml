@@ -131,7 +131,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_marginTop="68dp"
-        android:background="@mipmap/ic_launcher_video45_foreground"
+        android:background="@mipmap/ic_launcher_video7_foreground"
         app:layout_constraintTop_toBottomOf="@id/content"
         tools:layout_editor_absoluteX="-4dp" />
 
@@ -140,6 +140,7 @@
         style="@style/Widget.AppTheme.PlayCheckBox"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:background="@android:color/transparent"
         app:layout_constraintTop_toTopOf="@id/video_banner"
         app:layout_constraintBottom_toBottomOf="@id/video_banner"
         app:layout_constraintStart_toStartOf="@id/video_banner"
