@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 class PostRepositoryInMemoryImpl : PostRepository {
-    private var nextId = 0L
+    private var nextId = 1L
     private var post = listOf(
         Post(
             id = nextId++,
@@ -14,7 +14,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             like = 0,
             shar = 0,
             likeByMe = false,
-            sharByMe = false
+            sharByMe = false,
+            video = "https://www.youtube.com/watch?v=lokyTAkSPHo"
         ),
         Post(
             id = nextId++,
