@@ -83,6 +83,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.add.setOnClickListener {
             activityLauncher.launch(null)
+
         }
 
     }

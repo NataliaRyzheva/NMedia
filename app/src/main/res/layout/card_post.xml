@@ -126,30 +126,37 @@
         app:layout_constraintTop_toTopOf="@id/viewImage"
         tools:text="@sample/posts.json/reactions/view" />
 
-    <View
-        android:id="@+id/video_banner"
+
+    <FrameLayout
+        android:id="@+id/layoutVideo"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="68dp"
-        android:background="@mipmap/ic_launcher_video8_foreground"
-        app:layout_constraintTop_toBottomOf="@id/content"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/play_Click_Video"
-        style="@style/Widget.AppTheme.PlayCheckBox"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        app:layout_constraintBottom_toBottomOf="@id/video_banner"
-        app:layout_constraintEnd_toEndOf="@id/video_banner"
-        app:layout_constraintStart_toStartOf="@id/video_banner"
-        app:layout_constraintTop_toTopOf="@id/video_banner" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/video_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:visibility="gone"
-        app:constraint_referenced_ids="video_banner, play_Click_Video"
-        tools:visibility="visible" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/likesImage">
+
+        <View
+            android:id="@+id/video_banner"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@mipmap/ic_launcher_video8_foreground"
+            app:layout_constraintTop_toBottomOf="@id/layoutVideo" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/play_Click_Video"
+            style="@style/Widget.AppTheme.PlayCheckBox"
+            android:layout_width="48dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/video_banner"
+            app:layout_constraintEnd_toEndOf="@id/video_banner"
+            app:layout_constraintStart_toStartOf="@id/video_banner"
+            app:layout_constraintTop_toTopOf="@id/video_banner" />
+
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

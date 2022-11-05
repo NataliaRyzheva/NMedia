@@ -60,7 +60,10 @@ class PostViewHolder(
             likesImage.text = ru.netology.nmedia.Transformer.Transform.intTransform(post.like)
             repostsImage.text = ru.netology.nmedia.Transformer.Transform.intTransform(post.shar)
             likesImage.isChecked = post.likeByMe
-            videoGroup.isVisible = post.video != null
+            if (post.video != null) {
+                layoutVideo.visibility = View.VISIBLE
+            }
+
             // likesImage.setImageResource(
             //     if (post.likeByMe) ru.netology.nmedia.R.drawable.ic_launcher_like_click_foreground else ru.netology.nmedia.R.drawable.ic_launcher_like_foreground
             // )
@@ -96,5 +99,4 @@ class PostViewHolder(
             }
         }
     }
-
 }
