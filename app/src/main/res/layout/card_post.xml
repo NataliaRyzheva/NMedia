@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/indent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
 
     <ImageView
@@ -125,5 +125,38 @@
         app:layout_constraintTop_toBottomOf="@id/barrierBottom"
         app:layout_constraintTop_toTopOf="@id/viewImage"
         tools:text="@sample/posts.json/reactions/view" />
+
+
+    <FrameLayout
+        android:id="@+id/layoutVideo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/likesImage">
+
+        <View
+            android:id="@+id/video_banner"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@mipmap/ic_launcher_video8_foreground"
+            app:layout_constraintTop_toBottomOf="@id/layoutVideo" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/play_Click_Video"
+            style="@style/Widget.AppTheme.PlayCheckBox"
+            android:layout_width="48dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/video_banner"
+            app:layout_constraintEnd_toEndOf="@id/video_banner"
+            app:layout_constraintStart_toStartOf="@id/video_banner"
+            app:layout_constraintTop_toTopOf="@id/video_banner" />
+
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

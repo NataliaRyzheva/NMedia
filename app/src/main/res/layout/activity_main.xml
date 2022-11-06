@@ -4,103 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="@id/toolsTop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="-505dp"
         tools:listitem="@layout/card_post"
         tools:ignore="MissingConstraints" />
 
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/toolsTop"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="top"
-        app:constraint_referenced_ids="contentSave,save" />
-
-    <EditText
-        android:id="@+id/contentSave"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:hint="@string/post_text"
-        android:importantForAutofill="no"
-        android:inputType="textMultiLine"
-        android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/save"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/toolsTop"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageButton
-        android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/description_post_like"
-        android:src="@drawable/ic_baseline_check_circle_24"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/contentSave" />
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_add_24dp"
+        android:contentDescription="@string/add_post"/>
 
-    <LinearLayout
-        android:id="@+id/layoutCancel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/contentSave"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageButton
-            android:id="@+id/imagePencil"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:contentDescription="@string/post_edit"
-            app:layout_constraintBottom_toTopOf="@id/toolsTop"
-            app:srcCompat="@android:drawable/ic_menu_edit" />
-
-        <TextView
-            android:id="@+id/textEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_weight="16"
-            android:background="@android:color/white"
-            android:gravity="center_vertical"
-            android:padding="16dp"
-            android:text="@string/post_edit_text"
-            app:layout_constraintBottom_toTopOf="@id/layoutCancel"
-            app:layout_constraintEnd_toStartOf="@id/imageCancel"
-            app:layout_constraintStart_toEndOf="@id/imagePencil" />
-
-        <ImageButton
-            android:id="@+id/imageCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:contentDescription="@string/post_cancel"
-            app:layout_constraintBottom_toBottomOf="@id/toolsTop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_round_clear_24" />
-
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
