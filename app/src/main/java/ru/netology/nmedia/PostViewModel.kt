@@ -1,11 +1,9 @@
 package ru.netology.nmedia
 
 import android.app.Application
-import androidx.core.view.isVisible
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 
 private val empty = Post(
     id = 0,
@@ -24,7 +22,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: PostRepository = PostRepositoryFilesImpl(application)
     val data: LiveData<List<Post>> = repository.get()
     val edited = MutableLiveData(empty)
-
+    val draftContent = MutableLiveData("")
 
     fun changeContent(content: String) {
         val text = content.trim()
@@ -58,6 +56,15 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     fun edit(post: Post) {
         edited.value = post
     }
+
+    fun clearEdited() {
+        edited.value = empty
+    }
+
+    fun clearDraft() {
+        draftContent.value = ""
+    }
+
 }
 
 

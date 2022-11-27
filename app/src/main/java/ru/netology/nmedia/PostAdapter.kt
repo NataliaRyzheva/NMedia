@@ -17,6 +17,7 @@ interface OnInteractionListener {
     fun onLike(post: Post)
     fun onShare(post: Post)
     fun onPlayVideoClicked(post: Post)
+    fun onClickPost(post: Post)
 }
 
 class PostAdapter(
@@ -79,6 +80,7 @@ class PostViewHolder(
             repostsImage.setOnClickListener {
                 interactionListener.onShare(post)
             }
+
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_post)
@@ -96,6 +98,9 @@ class PostViewHolder(
                         }
                     }
                 }.show()
+            }
+            binding.root.setOnClickListener {
+                interactionListener.onClickPost(post)
             }
         }
     }
