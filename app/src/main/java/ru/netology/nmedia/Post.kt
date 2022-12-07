@@ -1,5 +1,6 @@
 package ru.netology.nmedia
 
+
 data class Post(
     var id: Long,
     val author: String,
@@ -8,6 +9,8 @@ data class Post(
     var like: Int,
     var shar: Int,
     val likeByMe: Boolean = false,
-    val sharByMe: Boolean = false
-
+    val sharByMe: Boolean = false,
+    var video: String? = null
 )
+
+
