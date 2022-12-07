@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.*
 import ru.netology.nmedia.activity.NewPostFragment.Companion.textArg
 import ru.netology.nmedia.databinding.FragmentPostBinding
+import ru.netology.nmedia.util.LongArg
 
 
 class PostFragment : Fragment() {

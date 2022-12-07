@@ -64,6 +64,7 @@ class FeedFragment : Fragment() {
             override fun onPlayVideoClicked(post: Post) {
                 if (post.video.isNullOrBlank()) return
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(post.video))
+
                 startActivity(intent)
             }
 

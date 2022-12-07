@@ -3,13 +3,12 @@ package ru.netology.nmedia
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ExpandableListView.OnChildClickListener
 import androidx.appcompat.widget.PopupMenu
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.databinding.CardPostBinding
+import ru.netology.nmedia.util.Transformer
 
 interface OnInteractionListener {
     fun onEdit(post: Post)
@@ -58,8 +57,8 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            likesImage.text = ru.netology.nmedia.Transformer.Transform.intTransform(post.like)
-            repostsImage.text = ru.netology.nmedia.Transformer.Transform.intTransform(post.shar)
+            likesImage.text = Transformer.Transform.intTransform(post.like)
+            repostsImage.text = Transformer.Transform.intTransform(post.shar)
             likesImage.isChecked = post.likeByMe
             if (post.video != null) {
                 layoutVideo.visibility = View.VISIBLE

@@ -1,25 +1,33 @@
-package ru.netology.nmedia
+package ru.netology.nmedia.Impl
 
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import ru.netology.nmedia.Post
+import ru.netology.nmedia.Repository.PostRepository
 
-class PostRepositorySharedPrefsImpl(context: Context) : PostRepository {
+class PostRepositoryFilesImpl(val context: Context) : PostRepository {
     private val gson = Gson()
-    private val prefs = context.getSharedPreferences("repo", Context.MODE_PRIVATE)
-    private val key = "post"
+    private val filename = "post.json"
     private val typeToken = TypeToken.getParameterized(List::class.java, Post::class.java).type
     private var nextId = 1L
     private var post = emptyList<Post>()
+        set(value) {
+            field = value
+            sync()
+        }
     private val data = MutableLiveData(post)
 
     init {
-        prefs.getString(key, null)?.let {
-            post = gson.fromJson(it, typeToken)
-            nextId = (post.maxOfOrNull { it.id } ?: 0) + 1
-        } ?: run {
+        val file = context.filesDir.resolve(filename)
+        if (file.exists()) {
+            context.openFileInput(filename).bufferedReader().use {
+                post = gson.fromJson(it, typeToken)
+                nextId = (post.maxOfOrNull { it.id } ?: 0) + 1
+            }
+        } else {
             post = listOf(
                 Post(
                     id = nextId++,
@@ -63,12 +71,13 @@ class PostRepositorySharedPrefsImpl(context: Context) : PostRepository {
                     sharByMe = false
                 )
             ).reversed()
+            sync()
         }
         data.value = post
     }
 
     override fun get(): LiveData<List<Post>> = data
-    override fun like(id: Long) {
+    override fun likeById(id: Long) {
         post = post.map {
             if (it.id != id) {
                 it
@@ -81,7 +90,6 @@ class PostRepositorySharedPrefsImpl(context: Context) : PostRepository {
             }
         }
         data.value = post
-        sync()
     }
 
     override fun save(postSave: Post) {
@@ -99,31 +107,27 @@ class PostRepositorySharedPrefsImpl(context: Context) : PostRepository {
             }
         }
         data.value = post
-        sync()
-
     }
 
-    override fun shar(id: Long) {
+    override fun shareById(id: Long) {
         post = post.map {
             if (it.id != id) it
             else
                 it.copy(shar = it.shar + 1)
         }
         data.value = post
-        sync()
     }
 
-    override fun removerById(id: Long) {
+    override fun removeById(id: Long) {
         post = post.filter { it.id != id }
         data.value = post
-        sync()
     }
 
     private fun sync() {
-        prefs.edit().apply {
-            putString(key, gson.toJson(post))
-            apply()
+        context.openFileOutput(filename, Context.MODE_PRIVATE).bufferedWriter().use {
+            it.write(gson.toJson(post))
         }
+
     }
 }
 

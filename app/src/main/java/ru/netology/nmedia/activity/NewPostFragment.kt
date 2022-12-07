@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.*
-import ru.netology.nmedia.AndroidUtils.hideKeyboard
+import ru.netology.nmedia.util.AndroidUtils.hideKeyboard
 import ru.netology.nmedia.databinding.FragmentNewPostBinding
+import ru.netology.nmedia.util.LongArg
+import ru.netology.nmedia.util.StringArg
 
 class NewPostFragment : Fragment() {
     val viewModel by viewModels<PostViewModel>(ownerProducer = ::requireParentFragment)
@@ -25,6 +28,7 @@ class NewPostFragment : Fragment() {
         val binding = FragmentNewPostBinding.inflate(inflater, container, false)
         arguments?.textArg?.let {
             binding.content.setText(it)
+
         }
 
         binding.ok.setOnClickListener {
