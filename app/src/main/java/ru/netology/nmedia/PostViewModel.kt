@@ -1,8 +1,11 @@
 package ru.netology.nmedia
 
-import androidx.lifecycle.LiveData
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import ru.netology.nmedia.Repository.PostRepository
+import ru.netology.nmedia.Repository.PostRepositoryRoomImpl
+import ru.netology.nmedia.db.AppDb
 
 private val empty = Post(
     id = 0,
@@ -12,22 +15,36 @@ private val empty = Post(
     like = 0,
     shar = 0,
     likeByMe = false,
-    sharByMe = false
+    sharByMe = false,
+    video = ""
 
 )
 
-class PostViewModel : ViewModel() {
-    private val repository: PostRepository = PostRepositoryInMemoryImpl()
-    val data: LiveData<List<Post>> = repository.get()
+class PostViewModel(application: Application) : AndroidViewModel(application) {
+    private val repository: PostRepository = PostRepositoryRoomImpl(
+        AppDb.getInstance(application).postDao
+    )
+    val data = repository.get()
     val edited = MutableLiveData(empty)
+    val draftContent = MutableLiveData("")
+
 
     fun changeContent(content: String) {
         val text = content.trim()
-        edited.value?.let {
-            if (it.content == text)
-                return
+        if (edited.value?.content == text) {
+            return
+        } else {
+            edited.value = edited.value?.copy(content = text)
         }
-        edited.value = edited.value?.copy(content = text)
+    }
+
+    fun changeContentUrl(video: String) {
+        val videoUrl = video.trim()
+        if (edited.value?.video == videoUrl) {
+            return
+        } else {
+            edited.value = edited.value?.copy(video = videoUrl)
+        }
     }
 
 
@@ -38,11 +55,23 @@ class PostViewModel : ViewModel() {
         edited.value = empty
     }
 
-    fun like(id: Long) = repository.like(id)
-    fun shar(id: Long) = repository.shar(id)
-    fun removeById(id: Long) = repository.removerById(id)
+    fun like(id: Long) = repository.likeById(id)
+    fun shar(id: Long) = repository.shareById(id)
+    fun removeById(id: Long) = repository.removeById(id)
     fun edit(post: Post) {
         edited.value = post
     }
 
+    fun clearEdited() {
+        edited.value = empty
+    }
+
+    fun clearDraft() {
+        draftContent.value = ""
+    }
+
 }
+
+
+
+
